@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://sushiki-hodoki.yhay81.com/sitemap.xml

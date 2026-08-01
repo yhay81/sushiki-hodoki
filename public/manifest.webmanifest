@@ -1,0 +1,10 @@
+{
+  "name": "数式ほどき",
+  "short_name": "数式ほどき",
+  "description": "Excel数式を端末内だけで構文、参照、確認候補へ分解する。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3efe4",
+  "theme_color": "#315c55",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
