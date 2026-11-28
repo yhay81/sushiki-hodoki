@@ -42,9 +42,24 @@ const eventRequest = (
 
 beforeAll(async () => {
   miniflare = new Miniflare({
-    d1Databases: { DB: "sushiki-hodoki-test" },
-    modules: true,
-    script: "export default { fetch() { return new Response('test') } }",
+    workers: [
+      {
+        config: {
+          name: "",
+          compatibilityDate: "2026-07-29",
+          env: { DB: { type: "d1", id: "sushiki-hodoki-test" } },
+          manifest: {
+            mainModule: "index.mjs",
+            modules: {
+              "index.mjs": {
+                type: "esm",
+                contents: "export default { fetch() { return new Response('test') } }",
+              },
+            },
+          },
+        },
+      },
+    ],
   });
   const database = await miniflare.getD1Database("DB");
   const migration = await readFile(pathOf("../migrations/0001_product.sql"), "utf8");
